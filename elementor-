@@ -1,0 +1,38 @@
+HTML
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Tyre table of content</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#" data-tab-open="0">The OTR Range</a>
+    <a href="#" data-tab-open="1">The ARGI Range</a>
+    <a href="#" data-tab-open="2">The TRUCK Range</a>
+    <a href="#" data-tab-open="3">Why Monaflex Tyre System</a>
+  </div>
+</div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+jQuery(function($){
+    
+let desktoptitles = $('.elementor-tab-desktop-title');
+let mobiletitles = $('.elementor-tab-mobile-title');
+
+let openers = document.querySelectorAll('[data-tab-open]');
+
+openers.forEach( (e,i) => {
+e.addEventListener('click',function(){
+let openThis = e.getAttribute('data-tab-open');
+if (!(desktoptitles.eq(openThis).hasClass('elementor-active'))){
+desktoptitles.eq(openThis).click();
+}
+if (!(mobiletitles.eq(openThis).hasClass('elementor-active'))){
+mobiletitles.eq(openThis).click();
+}
+$('html, body').animate({
+scrollTop: desktoptitles.eq(openThis).offset().top - 350
+},'slow');
+});
+}); } );
+}); 
+</script>
